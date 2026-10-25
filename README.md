@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/logo.png" alt="C2ML" width="96">
+<img src="logo/logo.png" alt="C2ML" width="96">
 
 # C2ML SDK
 
