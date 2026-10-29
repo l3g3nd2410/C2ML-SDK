@@ -32,6 +32,7 @@ Code complet de chaque widget ci-dessous : voir `ShowWidgetsPage()` dans `C2ML.E
 - [Mise en page](#mise-en-page)
 - [Navigation](#navigation)
 - [Fenêtre flottante indépendante](#fenêtre-flottante-indépendante)
+- [Texte coloré](#texte-coloré)
 - [Couleurs ImGui brutes](#couleurs-imgui-brutes-avancé)
 
 ## Texte
@@ -256,6 +257,29 @@ pour garder ton propre état synchronisé (voir `ShowWindowPage` dans `C2ML.Exam
 
 À réserver aux cas où tu as vraiment besoin d'un affichage hors du panneau C2ML : pour tout le reste, dessine
 directement dans `ShowMenu()`.
+
+## Texte coloré
+
+Affiche les balises `<color=#RRGGBB>...</color>` (ou le raccourci `<#RRGGBB>...</color>`, RRGGBB/RRGGBBAA, ou le
+format court à 3 chiffres `<#f0c>`) avec la vraie couleur au lieu de montrer les balises brutes - le même format
+que celui utilisé par le jeu lui-même, par exemple pour les pseudos des joueurs (voir [09-sync.md](09-sync.md),
+`RoomPlayer.Name`) :
+
+```csharp
+ImGuiAPI.ColoredText("Bonjour <color=#ff6666>monde</color> !");
+ImGuiAPI.ColoredText("<#0f0>Format court</color> fonctionne aussi");
+```
+
+Se comporte exactement comme `Text()` quand la chaîne ne contient aucune balise - utilisable partout à la place
+de `Text()` en cas de doute. Les balises imbriquées sont supportées (pile de couleurs).
+
+Un libellé de `Dropdown`/`DropdownMulti` est un seul widget natif : impossible d'y afficher une couleur par
+segment, utilise plutôt `ImGuiAPI.StripColorTags(text)` pour obtenir un libellé propre (retire les balises sans
+les interpréter) :
+
+```csharp
+string libelle = ImGuiAPI.StripColorTags(joueur.Name) + " (" + joueur.Id + ")";
+```
 
 ## Couleurs ImGui brutes (avancé)
 

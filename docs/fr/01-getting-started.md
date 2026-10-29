@@ -130,3 +130,5 @@ listage).
 | [06-logging.md](06-logging.md) | Écrire dans `loader.log` |
 | [07-harmony-patching.md](07-harmony-patching.md) | Patcher du code du jeu avec Harmony |
 | [08-publishing.md](08-publishing.md) | Publier, mettre à jour, versions de test |
+| [09-sync.md](09-sync.md) | Messages, liste des joueurs et variables utilisateur entre joueurs (`Sync`) |
+| [10-advanced-native-access.md](10-advanced-native-access.md) | Accès bas niveau en dernier recours (`NativeApi`) |

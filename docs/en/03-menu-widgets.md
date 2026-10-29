@@ -32,6 +32,7 @@ Full code for every widget below: see `ShowWidgetsPage()` in `C2ML.ExampleMod\Ex
 - [Layout](#layout)
 - [Navigation](#navigation)
 - [Standalone floating window](#standalone-floating-window)
+- [Colored text](#colored-text)
 - [Raw ImGui colors](#raw-imgui-colors-advanced)
 
 ## Text
@@ -256,6 +257,28 @@ keep your own state in sync (see `ShowWindowPage` in `C2ML.ExampleMod`).
 
 Reserve this for cases where you genuinely need something outside the C2ML panel: for everything else, draw
 directly inside `ShowMenu()`.
+
+## Colored text
+
+Renders `<color=#RRGGBB>...</color>` tags (or the shorthand `<#RRGGBB>...</color>`, RRGGBB/RRGGBBAA, or the
+3-digit shorthand `<#f0c>`) with the actual color instead of showing the raw tags - the same format the game
+itself uses, for example for player names (see [09-sync.md](09-sync.md), `RoomPlayer.Name`):
+
+```csharp
+ImGuiAPI.ColoredText("Hello <color=#ff6666>world</color>!");
+ImGuiAPI.ColoredText("<#0f0>Short form</color> works too");
+```
+
+Behaves exactly like `Text()` when the string has no tags - safe to use everywhere instead of `Text()` if you're
+not sure. Nested tags are supported (color stack).
+
+A `Dropdown`/`DropdownMulti` label is a single native widget: it can't render per-segment colors, so use
+`ImGuiAPI.StripColorTags(text)` there instead to get a plain, clean label (removes the tags without interpreting
+them):
+
+```csharp
+string label = ImGuiAPI.StripColorTags(player.Name) + " (" + player.Id + ")";
+```
 
 ## Raw ImGui colors (advanced)
 

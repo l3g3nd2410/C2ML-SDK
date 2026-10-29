@@ -127,3 +127,5 @@ it in the Mod DB (see [08-publishing.md](08-publishing.md) for visibility and li
 | [06-logging.md](06-logging.md) | Writing to `loader.log` |
 | [07-harmony-patching.md](07-harmony-patching.md) | Patching game code with Harmony |
 | [08-publishing.md](08-publishing.md) | Publishing, updates, test versions |
+| [09-sync.md](09-sync.md) | Messages, room roster and user variables between players (`Sync`) |
+| [10-advanced-native-access.md](10-advanced-native-access.md) | Last-resort low-level field access (`NativeApi`) |
