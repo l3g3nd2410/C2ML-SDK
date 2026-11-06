@@ -50,6 +50,8 @@ toggle.
 | Writing to `loader.log` | [06-logging](docs/en/06-logging.md) | [06-logging](docs/fr/06-logging.md) |
 | Patching game code with HarmonyX | [07-harmony-patching](docs/en/07-harmony-patching.md) | [07-harmony-patching](docs/fr/07-harmony-patching.md) |
 | Publishing, updates, test versions | [08-publishing](docs/en/08-publishing.md) | [08-publishing](docs/fr/08-publishing.md) |
+| Talking to other player's mods (Sync) | [09-sync](docs/en/09-sync.md) | [09-sync](docs/fr/09-sync.md) |
+| Low-level field access (NativeApi) | [10-native-access](docs/en/10-advanced-native-access.md) | [10-native-access](docs/fr/10-advanced-native-access.md) |
 
 `C2ML.ExampleMod` is a demo mod, not a real one: every API function has a minimal example there you can
 copy-paste directly. Its source (`examples/C2ML.ExampleMod/ExampleMod.cs`) is the most complete reference, meant
